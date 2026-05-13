@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../assets/logo/favicon.png">
+    <title>Kuzana | About Our Team</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <!-- Sleek Navigation (Updated with Hamburger Support) -->
+    <nav class="site-nav">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <img src="../assets/logo/kuzana-logo.png" alt="Kuzana Logo">
+            </a>
+
+            <!-- Hamburger Toggle -->
+            <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Only ONE list of links -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="referral.html">Referrals</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="cofounders.html">Cofounders</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <!-- Mobile only CTA -->
+                <li class="mobile-only-cta">
+                    <a href="#apply" class="btn btn-nav">Apply Now</a>
+                </li>
+                </li>
+            </ul>
+
+            <!-- Desktop-only Apply Button (hidden on mobile) -->
+            <a href="#apply" class="btn btn-nav desktop-cta">Apply Now</a>
+        </div>
+    </nav>
+
+    <!-- Changed padding to be more responsive than the inline 5rem -->
+    <main class="main-content" style="padding-top: 8rem;">
+
+        <!-- About Us Section -->
+        <section class="content-section">
+            <div class="sleek-card text-center">
+                <h3 class="section-heading">About Us</h3>
+                <p class="max-w-3xl mx-auto mb-4">
+                    Kuzana is a Swahili word meaning <strong>"to help each other grow"</strong>.
+                    Our goal is to mint 1,000 more millionaires by 2040 because capitalism is the greatest
+                    tool for good ever invented. We partner with you forever (unless you want us to exit).
+                </p>
+
+                <!-- About Us Image Placement -->
+                <div class="media-container p-0 border-radius-inner">
+                    <img src="../assets/images/image4.webp" alt="About Kuzana" class="full-width-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="content-section text-center">
+            <h3 class="section-heading">The Team</h3>
+            <div class="team-grid">
+                <!-- Each member is in their own card for easy stacking -->
+                <div class="sleek-card team-member">
+                    <img src="../assets/images/kyle profile pic.png" alt="Kyle Schutter" class="team-avatar">
+                    <h5>Kyle Schutter</h5>
+                    <p class="text-muted">CEO</p>
+                </div>
+                <div class="sleek-card team-member">
+                    <img src="../assets/images/Carol profile pic.png" alt="Carolyne Gathuru" class="team-avatar">
+                    <h5>Carolyne Gathuru</h5>
+                    <p class="text-muted">Head of Programs</p>
+                </div>
+                <div class="sleek-card team-member">
+                    <img src="../assets/images/Felicity profile pic.png" alt="Felicity Sangona" class="team-avatar">
+                    <h5>Felicity Sangona</h5>
+                    <p class="text-muted">Executive Assistant</p>
+                </div>
+                <div class="sleek-card team-member">
+                    <img src="../assets/images/Farhan profile pic.png" alt="Farhan Qureshi" class="team-avatar">
+                    <h5>Farhan Qureshi</h5>
+                    <p class="text-muted">Co-Director</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Silhouette Footer (Updated Layout) -->
+    <footer class="site-footer">
+        <!-- Saplings ride the wave -->
+        <div class="sapling-container">
+            <i class="fa-solid fa-seedling sapling s-small"></i>
+            <i class="fa-solid fa-seedling sapling s-large"></i>
+            <i class="fa-solid fa-seedling sapling s-medium"></i>
+            <i class="fa-solid fa-seedling sapling s-small"></i>
+            <i class="fa-solid fa-seedling sapling s-large"></i>
+            <i class="fa-solid fa-seedling sapling s-small"></i>
+        </div>
+
+        <svg class="footer-silhouette" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
+            preserveAspectRatio="none">
+            <defs>
+                <filter id="waveNoise">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
+                </filter>
+                <pattern id="texturedBlue" width="100%" height="100%">
+                    <rect width="100%" height="100%" fill="#4d6491" />
+                    <rect width="100%" height="100%" filter="url(#waveNoise)" opacity="0.08" />
+                </pattern>
+            </defs>
+            <path fill="url(#texturedBlue)"
+                d="M0,256L48,229.3C96,203,192,149,288,154.7C384,160,480,224,576,218.7C672,213,768,139,864,128C960,117,1056,171,1152,197.3C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
+
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2 class="footer-logo-massive">KUZANA</h2>
+                    <p>Spring Valley Rd, Nairobi, Kenya</p>
+                    <p>Email: <a href="mailto:info@kuzana.co">info@kuzana.co</a></p>
+                </div>
+
+                <div class="footer-links-wrapper">
+                    <div class="footer-links">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="referral.html">Referrals</a></li>
+                            <li><a href="resources.html">FAQ & Resources</a></li>
+                            <li><a href="cofounders.html">Cofounders</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-socials">
+                        <h4>Community</h4>
+                        <ul>
+                            <li><a href="https://www.linkedin.com/company/kuzana">LinkedIn</a></li>
+                            <li><a href="https://www.tiktok.com/@kuzana.co">TikTok</a></li>
+                            <li><a href="https://blog.kuzana.co/">Substack</a></li>
+                            <li><a href="https://x.com/kuzana_co">X</a></li>
+                            <li><a href="https://www.facebook.com/Kuzana/">Facebook</a></li>
+                            <li><a href="mailto:info@kuzana.co">Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Sign Up To Our Blog</h3>
+                    <p>Building the YCombinator For African SMEs</p>
+                    <form id="newsletter-form" class="newsletter-form">
+                        <input type="email" name="subscriber_email" placeholder="ENTER YOUR EMAIL" required>
+                        <button type="submit">SIGN UP</button>
+                        <input type="text" name="website_url" style="display:none" tabindex="-1" autocomplete="off">
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Kuzana. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+
+    <!-- Floating WhatsApp CTA -->
+    <a href="https://chat.whatsapp.com/BOIjYho65SB93f5C442o04" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+        aria-label="Join the Kuzana WhatsApp Community">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+</body>
+
+</html>
