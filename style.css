@@ -968,8 +968,4 @@ p:last-child {
         font-size: 0.75rem;
         margin-right: 5px;
     }
-    
-    .brand-logo img {
-        height: 32px; /* Scale down the logo slightly to make room */
-    }
 }
