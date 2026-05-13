@@ -927,10 +927,15 @@ p:last-child {
        Show the button in the nav bar, hide it inside the burger menu */
     .nav-home .desktop-cta {
         display: inline-block;
-        margin-right: 15px;
-        /* Spacing between button and hamburger */
-        font-size: 0.9rem;
-        padding: 0.6rem 1.2rem;
+        /* Use 'em' for padding so it scales relative to the text size */
+        padding: 0.5em 1em; 
+        font-size: 0.85rem;
+        font-weight: 700;
+        /* Prevents the text from wrapping inside the button */
+        white-space: nowrap; 
+        /* Removes any inherited minimum width that might be stretching it */
+        min-width: auto; 
+        margin-right: 10px;
     }
 
     .nav-home .mobile-only-cta {
@@ -954,5 +959,17 @@ p:last-child {
     .newsletter-form button {
         width: 100%;
         flex: none;
+    }
+}
+
+@media (max-width: 400px) {
+    .nav-home .desktop-cta {
+        padding: 0.4em 0.8em;
+        font-size: 0.75rem;
+        margin-right: 5px;
+    }
+    
+    .brand-logo img {
+        height: 32px; /* Scale down the logo slightly to make room */
     }
 }
