@@ -1033,3 +1033,7 @@ p:last-child {
 .delay-100 { transition-delay: 100ms; }
 .delay-200 { transition-delay: 200ms; }
 .delay-300 { transition-delay: 300ms; }
+
+* {
+    outline: 1px solid red !important;
+}
