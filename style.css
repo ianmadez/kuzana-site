@@ -31,13 +31,17 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     line-height: 1.1;
     color: var(--text-dark);
     margin-bottom: 0.5rem;
 }
 
-h5, h6 {
+h5,
+h6 {
     line-height: 1.2;
     color: var(--text-dark);
 }
@@ -82,7 +86,8 @@ p:last-child {
     align-items: center;
     text-decoration: none;
     flex-shrink: 0;
-    width: 160px; /* Constrains logo area so it doesn't affect nav width */
+    width: 160px;
+    /* Constrains logo area so it doesn't affect nav width */
     transition: transform 0.3s ease;
 }
 
@@ -91,7 +96,8 @@ p:last-child {
 }
 
 .brand-logo img {
-    height: 100px; /* Main desktop logo size */
+    height: 100px;
+    /* Main desktop logo size */
     width: auto;
     display: block;
     object-fit: contain;
@@ -117,15 +123,30 @@ p:last-child {
     color: var(--brand-red);
 }
 
-/* Hamburger Menu Toggle (Hidden on Desktop) */
-.menu-toggle {
-    display: none;
+/* ==========================================================================
+   Navigation Toggles (Base Styles)
+   ========================================================================== */
+
+/* Separated placement logic as requested - Hidden by default for Desktop */
+.menu-toggle-home, .menu-toggle {
     background: none;
     border: none;
     font-size: 1.8rem;
     color: var(--brand-blue);
     cursor: pointer;
     z-index: 1001;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none; /* Corrected: Single declaration to be overridden by MQ */
+}
+
+.menu-toggle-home {
+    right: 180px;
+}
+
+.menu-toggle {
+    right: 40px;
 }
 
 /* ==========================================================================
@@ -186,9 +207,17 @@ p:last-child {
 }
 
 @keyframes riseUp {
-    0% { background-position: 0% 100%; }
-    50% { background-position: 0% 0%; }
-    100% { background-position: 0% 100%; }
+    0% {
+        background-position: 0% 100%;
+    }
+
+    50% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 0% 100%;
+    }
 }
 
 #hero-canvas {
@@ -285,7 +314,8 @@ p:last-child {
 }
 
 /* --- High-Depth 3D Card Style --- */
-.card-3d, .glass-card {
+.card-3d,
+.glass-card {
     background: var(--white);
     border-radius: 2rem;
     padding: 3rem;
@@ -300,14 +330,16 @@ p:last-child {
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.card-3d:hover, .glass-card:hover {
+.card-3d:hover,
+.glass-card:hover {
     transform: translateY(-10px) scale(1.01);
     box-shadow:
         0 30px 60px -12px rgba(50, 50, 93, 0.25),
         0 18px 36px -18px rgba(0, 0, 0, 0.3);
 }
 
-.card-3d.brand-tint, .glass-card.brand-tint {
+.card-3d.brand-tint,
+.glass-card.brand-tint {
     background: linear-gradient(135deg, var(--brand-red), #ff9999);
     border: none;
     color: var(--white);
@@ -388,7 +420,7 @@ p:last-child {
 /* ==========================================================================
    Media Containers & Avatars
    ========================================================================== */
-.media-container {
+.media-container-legacy {
     background: var(--white);
     border: 1px solid var(--glass-border);
     border-radius: 1.5rem;
@@ -398,11 +430,58 @@ p:last-child {
     max-width: 1000px;
 }
 
-.full-width-image {
+.full-width-image-legacy {
     width: 100%;
     display: block;
     object-fit: cover;
     margin-bottom: 0;
+}
+
+.media-container {
+    background: var(--white);
+    border: 1px solid var(--glass-border);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    
+    /* THE FIX: Shrink the wrapper to a more manageable size */
+    max-width: 750px; 
+    margin: 3rem auto; /* Centers it perfectly */
+}
+
+.full-width-image {
+    width: 100%;
+    /* Force a cinematic widescreen ratio so it never gets too tall */
+    aspect-ratio: 16 / 9; 
+    object-fit: cover; 
+    display: block;
+}
+
+/* --- Centered Video Container --- */
+.media-container.video-size {
+    max-width: 800px;
+    margin: 3rem auto;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background: #000; /* Black background prevents flicker during load */
+    box-shadow: var(--shadow-soft);
+}
+
+/* --- Responsive 16:9 Wrapper --- */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
 
 .avatar {
@@ -476,10 +555,23 @@ p:last-child {
     z-index: 5;
 }
 
-.sapling { color: var(--brand-blue); }
-.sapling.s-small { font-size: 1.5rem; transform: rotate(-10deg); }
-.sapling.s-medium { font-size: 2rem; transform: rotate(5deg); }
-.sapling.s-large { font-size: 2.8rem; }
+.sapling {
+    color: var(--brand-blue);
+}
+
+.sapling.s-small {
+    font-size: 1.5rem;
+    transform: rotate(-10deg);
+}
+
+.sapling.s-medium {
+    font-size: 2rem;
+    transform: rotate(5deg);
+}
+
+.sapling.s-large {
+    font-size: 2.8rem;
+}
 
 .footer-silhouette {
     display: block;
@@ -507,12 +599,14 @@ p:last-child {
     padding-bottom: 3rem;
 }
 
-.footer-brand { flex: 1 1 350px; }
+.footer-brand {
+    flex: 1 1 350px;
+}
 
 .footer-logo-massive {
-    font-size: clamp(3.5rem, 8vw, 5.5rem);
+    font-size: clamp(4rem, 10vw, 7rem); 
     font-weight: 900;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     letter-spacing: -2px;
     line-height: 1;
     background: linear-gradient(90deg, var(--brand-blue), var(--brand-red), var(--brand-yellow));
@@ -522,15 +616,32 @@ p:last-child {
     display: inline-block;
 }
 
-.footer-brand p { color: rgba(255, 255, 255, 0.8); }
+.footer-brand p { 
+    color: rgba(255, 255, 255, 0.8); 
+    font-size: 1.1rem; /* Slightly larger address text */
+    margin-bottom: 0.5rem;
+}
 
-.footer-brand a, .footer-links a, .footer-socials a {
+.footer-mission {
+    color: var(--brand-yellow) !important;
+    font-weight: 600;
+    font-size: 1.2rem !important;
+    margin-top: 1.5rem;
+    max-width: 80%;
+    line-height: 1.4;
+}
+
+.footer-brand a,
+.footer-links a,
+.footer-socials a {
     color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
     transition: color 0.2s;
 }
 
-.footer-brand a:hover, .footer-links a:hover, .footer-socials a:hover {
+.footer-brand a:hover,
+.footer-links a:hover,
+.footer-socials a:hover {
     color: var(--brand-yellow);
 }
 
@@ -542,7 +653,8 @@ p:last-child {
     flex-wrap: wrap;
 }
 
-.footer-links h4, .footer-socials h4 {
+.footer-links h4,
+.footer-socials h4 {
     margin-bottom: 1.5rem;
     font-size: 1.2rem;
     letter-spacing: 0.5px;
@@ -550,8 +662,15 @@ p:last-child {
     color: var(--brand-yellow);
 }
 
-.footer-links ul, .footer-socials ul { list-style: none; }
-.footer-links li, .footer-socials li { margin-bottom: 1rem; }
+.footer-links ul,
+.footer-socials ul {
+    list-style: none;
+}
+
+.footer-links li,
+.footer-socials li {
+    margin-bottom: 1rem;
+}
 
 .footer-bottom {
     text-align: center;
@@ -606,7 +725,9 @@ p:last-child {
     letter-spacing: 1px;
 }
 
-.newsletter-form input::placeholder { color: rgba(255, 255, 255, 0.5); }
+.newsletter-form input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
 
 .newsletter-form button {
     padding: 1rem 2.5rem;
@@ -633,15 +754,17 @@ p:last-child {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 60px;
+    width: auto; /* Changed from fixed 60px */
     height: 60px;
+    padding: 0 1.5rem; /* Adds space around the text/icon */
     background-color: #25d366;
     color: white;
-    border-radius: 50%;
+    border-radius: 50px; /* Pill shape */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 32px;
+    gap: 10px; /* Space between text and icon */
+    font-size: 28px; /* Icon size */
     text-decoration: none;
     z-index: 9999;
     opacity: 0.4;
@@ -649,42 +772,86 @@ p:last-child {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+.whatsapp-text {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* On hover, full opacity and slight lift */
 .whatsapp-float:hover {
     opacity: 1;
-    transform: scale(1.15) translateY(-5px);
+    transform: scale(1.05) translateY(-5px);
     box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
 }
 
 /* ==========================================================================
    Utilities
    ========================================================================== */
-.mt-4 { margin-top: 2rem; }
-.mb-4 { margin-bottom: 2rem; }
-.text-center { text-align: center; }
-.text-muted { color: var(--text-muted); }
-.text-white { color: var(--white); }
+.mt-4 {
+    margin-top: 2rem;
+}
+
+.mb-4 {
+    margin-bottom: 2rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-muted {
+    color: var(--text-muted);
+}
+
+.text-white {
+    color: var(--white);
+}
 
 /* ==========================================================================
    Responsive Breakpoints
    ========================================================================== */
 
 /* --- Desktop Nav Logic --- */
-@media (min-width: 769px) {
-    .mobile-only-cta { display: none !important; }
-    .desktop-cta { display: inline-block; }
+@media (min-width: 851px) {
+    .mobile-only-cta {
+        display: none !important;
+    }
+
+    .desktop-cta {
+        display: inline-block;
+    }
 }
 
-/* --- Main Mobile Breakpoint (< 768px) --- */
-@media (max-width: 768px) {
-    .hero-section { padding-top: 8rem; }
-    .content-section { padding: 4rem 0; }
-    .card-3d, .glass-card { padding: 2rem; }
+/* --- Main Mobile Breakpoint (< 850px) --- */
+@media (max-width: 850px) {
+    .hero-section {
+        padding-top: 8rem;
+    }
+
+    .content-section {
+        padding: 4rem 0;
+    }
+
+    .card-3d,
+    .glass-card {
+        padding: 2rem;
+    }
 
     /* Nav Layout Fixes */
-    .menu-toggle { display: block; }
-    .desktop-cta { display: none; }
-    .mobile-only-cta { display: block; }
-    
+    .menu-toggle-home,
+    .menu-toggle {
+        display: block;
+    }
+
+    .desktop-cta {
+        display: none;
+    }
+
+    .mobile-only-cta {
+        display: block;
+    }
+
     .mobile-only-cta .btn {
         width: 100%;
         text-align: center;
@@ -721,26 +888,35 @@ p:last-child {
     }
 
     /* Home Page Nav Overrides */
-    .nav-home .nav-container { justify-content: space-between; }
+    .nav-home .nav-container {
+        justify-content: space-between;
+    }
+
     .nav-home .desktop-cta {
         display: inline-block;
-        padding: 0.5em 1em; 
+        padding: 0.5em 1em;
         font-size: 0.85rem;
         font-weight: 700;
-        white-space: nowrap; 
-        min-width: auto; 
+        white-space: nowrap;
+        min-width: auto;
         margin-right: 10px;
     }
-    .nav-home .mobile-only-cta { display: none !important; }
+
+    .nav-home .mobile-only-cta {
+        display: none !important;
+    }
 
     /* Footer & Widgets */
+    .whatsapp-text {
+        display: none; /* Hide text on small screens */
+    }
     .whatsapp-float {
+        width: 50px; /* Revert to circle */
+        height: 50px;
+        padding: 0;
         bottom: 20px;
         right: 20px;
-        width: 50px;
-        height: 50px;
-        font-size: 26px;
-        opacity: 0.6;
+        opacity: 0.6; 
     }
 
     .sapling-container {
@@ -750,9 +926,58 @@ p:last-child {
         transform-origin: bottom right;
     }
 
-    .footer-links-wrapper {
-        justify-content: flex-start;
+    /* 2. Center the entire Footer Grid */
+    .footer-grid {
         flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-brand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .footer-mission {
+        text-align: center;
+        margin: 1.5rem auto 0;
+    }
+
+    /* 3. Stack the links dead center and larger */
+    .footer-links-wrapper {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem; /* Space between the two link groups */
+    }
+
+    .footer-links,
+    .footer-socials {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Increase the font sizes slightly for legibility on iPad */
+    .footer-links h4,
+    .footer-socials h4 {
+        font-size: 1.3rem; 
+        margin-bottom: 1rem;
+    }
+
+    .footer-links a,
+    .footer-socials a {
+        font-size: 1.1rem;
+    }
+
+    /* 4. The thin dividing line for hierarchy & depth */
+    .footer-links {
+        padding-bottom: 2.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     }
 }
 
@@ -762,6 +987,7 @@ p:last-child {
         flex-direction: column;
         padding: 0;
     }
+
     .newsletter-form input,
     .newsletter-form button {
         width: 100%;
@@ -776,7 +1002,33 @@ p:last-child {
         font-size: 0.75rem;
         margin-right: 5px;
     }
+
     .brand-logo img {
-        height: 40px; 
+        height: 70px;
     }
 }
+
+/* ==========================================================================
+   Premium Scroll Animations
+   ========================================================================== */
+
+/* The starting state (hidden and pushed down slightly) */
+.fade-up {
+    opacity: 0;
+    transform: translateY(50px); /* A subtle 50px lift is elegant, not distracting */
+    /* The premium easing curve */
+    transition: opacity 0.7s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+    will-change: opacity, transform; /* Hardware acceleration */
+}
+
+/* The ending state (triggered by JavaScript) */
+.fade-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Optional delays if you want a paragraph to follow a header smoothly */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }

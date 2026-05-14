@@ -115,3 +115,31 @@ if (mobileMenuBtn && navLinks) {
         }
     });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Set up the Intersection Observer
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15 // Triggers when 15% of the element is visible
+    };
+
+    const fadeObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add the visible class to trigger the CSS transition
+                entry.target.classList.add('is-visible');
+                
+                // Stop observing once it has animated so it doesn't repeat 
+                // every time they scroll up and down
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, observerOptions);
+
+    // 2. Grab all elements with the 'fade-up' class and watch them
+    const fadeElements = document.querySelectorAll('.fade-up');
+    fadeElements.forEach(element => {
+        fadeObserver.observe(element);
+    });
+});
